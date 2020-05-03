@@ -17,7 +17,7 @@ class PaymentModel extends Model{
         'payment_ammount' => 'int'
     ];
     public function order(){
-        return $this->belongsToMany(OrderModel::class);
+        return $this->HasMany(OrderModel::class);
     }
 
     public function shipping(){

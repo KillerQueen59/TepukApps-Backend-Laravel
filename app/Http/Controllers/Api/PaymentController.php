@@ -42,10 +42,11 @@ class PaymentController extends Controller{
             $order->user;
             $order->pupuk;
         }
+        $payments->order;
         return response()->json([
             'success'=>true,
-            'payments' => $payments,
-            'orders' => $orders
+            'payments' => $payments
+            
         ]);
 
     }

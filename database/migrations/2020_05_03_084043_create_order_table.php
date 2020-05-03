@@ -17,6 +17,7 @@ class CreateOrderTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('pupuk_id');
+            $table->unsignedBigInteger('payment_id')->nullable();
             $table->integer('order_qty');
             $table->integer('total');
             $table->string('status');
@@ -25,6 +26,7 @@ class CreateOrderTable extends Migration
         //foreign key 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('pupuk_id')->references('id')->on('pupuks');
+            $table->foreign('payment_id')->references('id')->on('payments');
             
         });
     }

@@ -10,13 +10,14 @@ class OrderModel extends Model{
     protected $table = "orders";
 
     protected $fillable = [
-        'user_id', 'pupuk_id', 'status','order_qty','total'
+        'user_id', 'pupuk_id', 'status','order_qty','total','total_order'
     ];
 
     protected $casts = [
         'pupuk_id' => 'int',
         'order_qty' => 'int',
-        'total' => 'int'
+        'total' => 'int',
+        'total_order'=> 'int'
     ];
     public function user(){
         return $this->belongsTo(User::class);
@@ -27,7 +28,7 @@ class OrderModel extends Model{
     }
 
     public function payment(){
-        return $this->hasOne(PaymentModel::class);
+        return $this->belongsTo(PaymentModel::class);
     }
 
 }
